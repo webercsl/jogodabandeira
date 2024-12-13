@@ -3,6 +3,10 @@ import { v } from "convex/values";
 
 export default defineSchema({
     flags: defineTable({
-        name: v.string(),
+        namePT: v.string(),
+        nameEN: v.string(),
+        nameSP: v.string(),
+        image: v.string(),
+        continent: v.string(),
     }),
 });

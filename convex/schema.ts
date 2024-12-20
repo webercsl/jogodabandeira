@@ -9,4 +9,9 @@ export default defineSchema({
         image: v.string(),
         continent: v.string(),
     }),
+    ranking: defineTable({
+        score: v.number(),
+        playerId: v.string(),
+    })
+        .index("by_player_id", ["playerId"]),
 });

@@ -86,3 +86,44 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Gradiente para as primeiras posições */
+.bg-gradient-to-r {
+  background-size: 200%;
+  background-position: left;
+}
+
+/* Reflexo no hover */
+.group:hover .bg-gradient-to-r {
+  animation: gradient-slide 2s infinite alternate;
+}
+
+.group:hover .animate-reflection {
+  animation: reflection 1.5s infinite;
+}
+
+/* Animação do reflexo */
+@keyframes reflection {
+  0% {
+      transform: translateX(-100%);
+      opacity: 0.3;
+  }
+  50% {
+      transform: translateX(50%);
+      opacity: 0.7;
+  }
+  100% {
+      transform: translateX(100%);
+      opacity: 0;
+  }
+}
+
+/* Gradiente deslizante */
+@keyframes gradient-slide {
+  0% {
+      background-position: left;
+  }
+  100% {
+      background-position: right;
+  }
+}

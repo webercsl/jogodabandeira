@@ -15,6 +15,7 @@ import type {
 } from "convex/server";
 import type * as flags from "../flags.js";
 import type * as ranking from "../ranking.js";
+import type * as users from "../users.js";
 
 /**
  * A utility for referencing Convex functions in your app's API.
@@ -27,6 +28,7 @@ import type * as ranking from "../ranking.js";
 declare const fullApi: ApiFromModules<{
   flags: typeof flags;
   ranking: typeof ranking;
+  users: typeof users;
 }>;
 export declare const api: FilterApi<
   typeof fullApi,

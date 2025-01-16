@@ -1,6 +1,6 @@
 "use client";
 
-import { useQuery } from "convex/react";
+import { useQuery, useMutation } from "convex/react";
 import { api } from "../../convex/_generated/api";
 import { useState, useEffect } from "react";
 import { FullscreenLoader } from "@/components/fullscreen-loader";
@@ -8,21 +8,9 @@ import { FullscreenLoader } from "@/components/fullscreen-loader";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import {
-  CircleAlert,
-  EllipsisVertical,
-  MessageCircle,
-  CircleHelp,
-  ChartNoAxesColumnDecreasing,
-  Settings
-} from "lucide-react"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+import Link from "next/link";
+import Image from "next/image";
+import { DropdownMenuButton } from "@/components/dropdown-menu";
 
 const Game = () => {
   const [gameState, setGameState] = useState<"start" | "countdown" | "playing" | "gameOver">("start");
@@ -30,15 +18,19 @@ const Game = () => {
   const [timeLeft, setTimeLeft] = useState<number>(12);
   const [currentFlag, setCurrentFlag] = useState<Flag | null>(null);
   const [options, setOptions] = useState<string[]>([]);
-  const [score, setScore] = useState<number>(0);
   const [bonus, setBonus] = useState<number>(0);
   const [usedFlags, setUsedFlags] = useState<string[]>([]);
-  const [totalScore, setTotalScore] = useState<number>(0);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
-
+  const [score, setScore] = useState<number>(0);
+  const [totalScore, setTotalScore] = useState<number>(0);
+  
+  const updateUserScore = useMutation(api.ranking.update);
+  const currentUserScore = useQuery(api.ranking.getScore);
   const flags = useQuery(api.flags.get);
-
+  
+  const scoreBanco = currentUserScore?.score;
+  
   interface Flag {
     _id: string;
     nameEN: string;
@@ -138,7 +130,6 @@ const Game = () => {
       setSelectedOption(null);
       setIsCorrect(null);
 
-      setTimeout(() => {
         if (correct) {
           setTimeLeft(12);
           generateQuestion();
@@ -146,55 +137,43 @@ const Game = () => {
           setGameState("gameOver");
           setTotalScore(score);
         }
-      }, 200); // Pequeno atraso para garantir que tudo é carregado
     }, 1000);
   };
+  
+  useEffect(() => {
+    if (gameState === "gameOver" && totalScore > (scoreBanco ?? 0)) {
+      updateUserScore({ score: totalScore });
+    }
+  }, [gameState, totalScore, score, updateUserScore]);
 
   if (flags === undefined) {
     return <FullscreenLoader />;
   }
 
-  console.log("Todas as bandeiras:", flags);
-
   return (
     <div className="min-h-screen flex flex-col justify-center items-center bg-[#c0c0c0] dark:bg-[#15202b]">
-      <div className="w-[500px] h-[500px] flex flex-col justify-center items-center">
+      <Link href="/ranking" className="flex gap-2 text-lg font-bold bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white p-3 rounded-full shadow-lg hover:scale-105 transform transition-all duration-200 ease-in-out mb-16">
+        Ver Ranking
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
+        </svg>
+      </Link>
+      <div className="w-[600px] h-[600px] flex flex-col justify-center items-center">
         <nav className="mb-8 font-bold uppercase text-2xl relative w-full flex justify-center items-center">
           <h1>Adivinhe a bandeira</h1>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild className="cursor-pointer hover:bg-slate-200/10 rounded-full p-2 h-10 w-10">
-              <EllipsisVertical className="absolute right-2" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56">
-              <DropdownMenuItem className="cursor-pointer">
-                <CircleHelp />
-                <DropdownMenuLabel>Como jogar</DropdownMenuLabel>
-              </DropdownMenuItem>
-              <DropdownMenuItem className="cursor-pointer">
-                <ChartNoAxesColumnDecreasing />
-                <DropdownMenuLabel>Ranking</DropdownMenuLabel>
-              </DropdownMenuItem>
-              <DropdownMenuItem className="cursor-pointer">
-                <Settings />
-                <DropdownMenuLabel>Configurações</DropdownMenuLabel>
-              </DropdownMenuItem>
-              <DropdownMenuItem className="cursor-pointer">
-                <CircleAlert />
-                <DropdownMenuLabel>Créditos</DropdownMenuLabel>
-              </DropdownMenuItem>
-              <DropdownMenuItem className="cursor-pointer">
-                <MessageCircle />
-                <DropdownMenuLabel>Feedback</DropdownMenuLabel>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <DropdownMenuButton />
         </nav>
         {gameState === "start" && (
-          <Card className="w-full h-full flex flex-col justify-center items-center bg-gray-400 dark:bg-[#1e2732] border-none">
-            <Button variant="default" size="lg" onClick={startGame}>
+            <Card className="w-full h-full flex flex-col justify-center items-center bg-gray-400 dark:bg-[#1e2732] border-none relative">
+            <img
+              src="https://curious-fish-513.convex.cloud/api/storage/eef912e8-053b-42a9-b8c7-140f1e2d706f"
+              alt="Background"
+              className="absolute inset-0 w-full h-full object-cover opacity-50"
+            />
+            <Button variant="default" size="lg" onClick={startGame} className="relative z-10">
               Jogar
             </Button>
-          </Card>
+            </Card>
         )}
 
         {gameState === "countdown" && (
@@ -209,10 +188,14 @@ const Game = () => {
           <Card className="w-full h-full flex flex-col justify-center items-center bg-gray-400 dark:bg-[#1e2732] border-none">
             <CardHeader>
               {currentFlag && (
-                <img
+                <Image
                   src={currentFlag.image}
                   alt={`Bandeira de ${currentFlag.namePT}`}
                   className="h-40 w-full object-contain"
+                  width={255}
+                  height={170}
+                  priority
+                  loading="eager"
                 />
               )}
             </CardHeader>

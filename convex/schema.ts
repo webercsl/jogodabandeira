@@ -9,9 +9,10 @@ export default defineSchema({
         image: v.string(),
         continent: v.string(),
     }),
-    ranking: defineTable({
+    users: defineTable({
+        name: v.string(),
+        avatar: v.string(),
         score: v.number(),
-        playerId: v.string(),
-    })
-        .index("by_player_id", ["playerId"]),
+        tokenIdentifier: v.string(),
+    }).index("by_token", ["tokenIdentifier"]),
 });

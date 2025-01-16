@@ -1,36 +1,61 @@
-import { query, mutation } from "./_generated/server";
 import { v } from "convex/values";
 
-export const create = mutation({
-    args: { score: v.number() },
+import { query, mutation } from "./_generated/server";
+
+export const list = query({
+    args: {},
     handler: async (ctx, args) => {
-        const user = await ctx.auth.getUserIdentity();
+        const users = await ctx.db.query("users").collect();
+        return users.map(user => ({
+            id: user._id,
+            name: user.name,
+            avatar: user.avatar,
+            score: user.score,
+        }));
+    },
+});
 
-        if (!user) {
-
+export const getScore = query({
+    args: {},
+    handler: async (ctx) => {
+        const identity = await ctx.auth.getUserIdentity();
+        if (identity === null) {
+            return { score: null }; // Return null score if not authenticated
         }
 
-        return await ctx.db.insert("ranking", {
-            playerId: user?.subject,
-            score: args.score,
-        })
-    },
-})
+        const user = await ctx.db.query("users").filter(q => q.eq(q.field("tokenIdentifier"), identity.tokenIdentifier)).first();
+        if (!user) {
+            throw new Error("User not found");
+        }
 
-// export const list = query({
-//     args: {},
-//     handler: async (ctx) => {
-//         const ranking = await ctx.db.query("ranking").collect();
-//         return Promise.all(
-//             ranking.map(async (rank) => {
-//                 // For each rank in this channel, fetch the `User` who wrote it and
-//                 // insert their name into the `author` field.
-//                 const user = await ctx.db.get(rank.user);
-//                 return {
-//                     author: user?.name ?? "Anonymous",
-//                     ...rank,
-//                 };
-//             }),
-//         );
-//     },
-// });
+        return { score: user.score };
+    },
+});
+
+export const update = mutation({
+    args: {
+        score: v.number(),
+    },
+    handler: async (ctx, args) => {
+        const userIdentity = await ctx.auth.getUserIdentity();
+
+        // Verificar se o usuário está autenticado
+        if (!userIdentity || !userIdentity.tokenIdentifier) {
+            throw new Error("Unauthorized: User must be logged in to update the score.");
+        }
+
+        // Obter o _id do usuário a partir da tabela users
+        const user = await ctx.db.query("users").filter(q => q.eq(q.field("tokenIdentifier"), userIdentity.tokenIdentifier)).first();
+
+        if (!user || !user._id) {
+            throw new Error("User not found.");
+        }
+
+        // Atualizar o campo "score" do usuário autenticado
+        await ctx.db.patch(user._id, {
+            score: args.score,
+        });
+
+        return { success: true, userId: user._id };
+    },
+});

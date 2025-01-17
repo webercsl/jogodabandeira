@@ -17,9 +17,6 @@ export const Navbar = () => {
     // Busca os usuários do ranking
     const ranking = useQuery(api.ranking.list) || [];
 
-    console.log("Ranking:", ranking);
-    console.log("Usuário logado:", user);
-
     // Ordena o ranking por pontuação em ordem decrescente
     const sortedRanking = ranking.sort((a, b) => b.score - a.score);
 
@@ -33,7 +30,7 @@ export const Navbar = () => {
         : undefined;
 
     return (
-        <nav className="flex justify-between items-center p-4 space-x-4 bg-[#c0c0c0] dark:bg-[#15202b] fixed w-full" style={{ boxShadow: "0 0 10px #000" }}>
+        <nav className="flex justify-between items-center p-2 space-x-4 bg-[#c0c0c0] dark:bg-[#15202b] fixed w-full" style={{ boxShadow: "0 0 10px #000" }}>
             <div className="flex items-center space-x-4">
                 {topUser && (
                     <div className="flex items-center gap-3 text-lg font-bold bg-black text-yellow-400 border-2 border-yellow-500 p-1 rounded-xl shadow-lg">

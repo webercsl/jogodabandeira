@@ -4,6 +4,6 @@ export const get = query({
     handler: async (ctx) => {
         return await ctx.db
             .query("flags")
-            .collect();
+            .take(5);
     },
 });

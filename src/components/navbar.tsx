@@ -30,11 +30,11 @@ export const Navbar = () => {
         : undefined;
 
     return (
-        <nav className="flex justify-between items-center p-2 space-x-4 bg-[#c0c0c0] dark:bg-[#15202b] fixed w-full" style={{ boxShadow: "0 0 10px #000" }}>
+        <nav className="flex md:flex-row flex-col justify-between items-center p-2 md:space-x-4 bg-[#c0c0c0] dark:bg-[#15202b] fixed w-screen md:w-full" style={{ boxShadow: "0 0 10px #000" }}>
             <div className="flex items-center space-x-4">
                 {topUser && (
-                    <div className="flex items-center gap-3 text-lg font-bold bg-black text-yellow-400 border-2 border-yellow-500 p-1 rounded-xl shadow-lg">
-                        <span className="text-3xl">🏆</span>
+                    <div className="mb-4 md:mb-0 flex items-center gap-3 text-xs md:text-lg font-bold bg-black text-yellow-400 border-2 border-yellow-500 p-1 rounded-xl shadow-lg">
+                        <span className="text-lg md:text-3xl">🏆</span>
                         <span>
                             1° : <span className="text-white">{topUser.name}</span> -{" "}
                             <span className="text-white">{topUser.score} pontos</span>
@@ -42,11 +42,13 @@ export const Navbar = () => {
                     </div>
                 )}
             </div>
-            <div className="flex items-center space-x-4">
+            <div className="gap-4 flex flex-col md:flex-row items-center md:space-x-4">
                 {isAuthenticated ? (
                     <>
-                        <UserButton />
-                        <span className="ml-2 font-bold">{user?.firstName}</span>
+                        <div className="flex items-center space-x-2">
+                            <UserButton />
+                            <span className="ml-2 font-bold">{user?.firstName}</span>
+                        </div>
                         {loggedInUser ? (
                             <span className="text-sm font-bold bg-gradient-to-r from-gray-300 via-gray-400 to-gray-500 text-black p-2 rounded-lg shadow-md">
                                 🎮 Sua posição: {loggedInUserPosition}° : {loggedInUser.score} pontos
@@ -65,7 +67,7 @@ export const Navbar = () => {
                         </SignInButton>
                     </>
                 )}
-                <div className="flex space-x-4">
+                <div className="hidden md:flex md:space-x-4">
                     <ModeToggle />
                     <div className="flex space-x-4">
                         <Hint label="Alterar idioma para Português">

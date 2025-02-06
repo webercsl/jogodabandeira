@@ -34,7 +34,7 @@ export const Navbar = () => {
             <div className="flex items-center space-x-4">
                 {topUser && (
                     <div className="mb-4 md:mb-0 flex items-center gap-3 text-xs md:text-lg font-bold bg-black text-yellow-400 border-2 border-yellow-500 p-1 rounded-xl shadow-lg">
-                        <span className="text-lg md:text-3xl">🏆</span>
+                        <span className="text-lg md:text-3xl">T</span>
                         <span>
                             1° : <span className="text-white">{topUser.name}</span> -{" "}
                             <span className="text-white">{topUser.score} pontos</span>
@@ -51,11 +51,11 @@ export const Navbar = () => {
                         </div>
                         {loggedInUser ? (
                             <span className="text-sm font-bold bg-gradient-to-r from-gray-300 via-gray-400 to-gray-500 text-black p-2 rounded-lg shadow-md">
-                                🎮 Sua posição: {loggedInUserPosition}° : {loggedInUser.score} pontos
+                                Sua posição: {loggedInUserPosition}° : {loggedInUser.score} pontos
                             </span>
                         ) : (
                             <span className="text-sm font-bold text-black dark:text-white">
-                                🚫 Pontuação não encontrada
+                                Pontuação não encontrada
                             </span>
                         )}
                     </>

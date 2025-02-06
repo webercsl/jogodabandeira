@@ -6,7 +6,6 @@ import {
     MessageCircle,
     CircleHelp,
     ChartNoAxesColumnDecreasing,
-    Settings
 } from "lucide-react"
 import {
     DropdownMenu,
@@ -15,7 +14,6 @@ import {
     DropdownMenuLabel,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Copy } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
     Dialog,
@@ -27,7 +25,6 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
 
@@ -63,7 +60,7 @@ export const DropdownMenuButton = () => {
                                 <br /><br />
                                 Após o término da partida, será gerado um link para você compartilhar sua pontuação com seus amigos!
                                 <br /><br />
-                                🎯 Boa sorte e divirta-se!
+                                Boa sorte e divirta-se!
                             </DialogDescription>
                         </DialogHeader>
                         <DialogFooter className="sm:justify-start">
@@ -95,9 +92,9 @@ export const DropdownMenuButton = () => {
                                 Para ter sua pontuação registrada e aparecer no ranking, basta fazer login com sua <strong>conta Google</strong>.
                                 <br /><br />
                                 <strong>Por que usamos a conta Google?</strong><br />
-                                - ✅ Rápido e seguro.<br />
-                                - ✅ Sem necessidade de criar novas senhas.<br />
-                                - ✅ Apenas sua pontuação será armazenada.
+                                - Rápido e seguro.<br />
+                                - Sem necessidade de criar novas senhas.<br />
+                                - Apenas sua pontuação será armazenada.
                                 <br /><br />
                                 Mostre suas habilidades e tente alcançar o topo do ranking!
                             </DialogDescription>
@@ -209,7 +206,6 @@ export const DropdownMenuButton = () => {
                         </DialogFooter>
                     </DialogContent>
                 </Dialog>
-
             </DropdownMenuContent>
         </DropdownMenu>
     )

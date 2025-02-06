@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Nunito } from "next/font/google";
+import { Nunito } from "next/font/google";
 
 import { Navbar } from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider"
@@ -7,7 +7,6 @@ import { ConvexClientProvider } from "@/components/convex-client-provider";
 
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
 const nunito = Nunito({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

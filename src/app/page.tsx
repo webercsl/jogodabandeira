@@ -27,7 +27,7 @@ const Game = () => {
   const [timeLeft, setTimeLeft] = useState<number>(12);
   const [currentFlag, setCurrentFlag] = useState<Flag | null>(null);
   const [options, setOptions] = useState<string[]>([]);
-  const [bonus, setBonus] = useState<number>(0);
+  const [_bonus, setBonus] = useState<number>(0);
   const [usedFlags, setUsedFlags] = useState<string[]>([]);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
@@ -50,7 +50,7 @@ const Game = () => {
 
   const scoreBanco = currentUserScore?.score;
 
-  const shuffleArray = (array: any[]): any[] => array.sort(() => Math.random() - 0.5);
+  const shuffleArray = <T,>(array: T[]): T[] => array.sort(() => Math.random() - 0.5);
 
   const startGame = () => {
     setGameState("countdown");
@@ -347,7 +347,7 @@ const Game = () => {
                   </p>
                 ) : (
                   <span className="text-sm font-bold text-black dark:text-white">
-                    🚫 Pontuação não encontrada
+                    Pontuação não encontrada
                   </span>
                 )}
               </CardContent>

@@ -10,28 +10,22 @@ import { useUser } from "@clerk/clerk-react";
 
 const RankingPage = () => {
     const users = useQuery(api.ranking.list) || [];
-    const [searchTerm, setSearchTerm] = useState("");
+    const [searchTerm, _setSearchTerm] = useState("");
     const { user } = useUser();
     
     const sortedUsers = users.sort((a, b) => b.score - a.score);
 
-    // Buscar usuário logado no ranking
     const loggedInUser = sortedUsers.find((u) => u.avatar === user?.imageUrl);
-    const loggedInUserPosition = loggedInUser ? sortedUsers.indexOf(loggedInUser) + 1 : null;
 
-    // Pegar os 10 primeiros do ranking
     const top10Users = sortedUsers.slice(0, 10);
 
-    // Verificar se o usuário logado está no top 10
     const isUserInTop10 = loggedInUser && top10Users.includes(loggedInUser);
 
-    // Caso o usuário logado não esteja no top 10, adicioná-lo na 11ª posição com sua posição real
-    let displayedUsers = [...top10Users];
+    const displayedUsers = [...top10Users];
     if (loggedInUser && !isUserInTop10) {
         displayedUsers.push(loggedInUser);
     }
 
-    // Filtrar os usuários com base na pesquisa
     const filteredUsers = displayedUsers.filter(user =>
         user.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
@@ -62,10 +56,9 @@ const RankingPage = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {filteredUsers.map((user, index) => {
+                            {filteredUsers.map((user, _index) => {
                                 const realPosition = sortedUsers.indexOf(user) + 1;
 
-                                // Destacar posições 1°, 2° e 3° do ranking
                                 const positionClass =
                                     realPosition === 1
                                         ? "bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-black"
@@ -75,7 +68,6 @@ const RankingPage = () => {
                                                 ? "bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 text-black"
                                                 : "";
 
-                                // Destacar o usuário logado
                                 const isLoggedUser = user.avatar === loggedInUser?.avatar;
                                 const loggedUserClass = isLoggedUser
                                     ? "transform scale-110"

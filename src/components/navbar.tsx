@@ -30,11 +30,11 @@ export const Navbar = () => {
         : undefined;
 
     return (
-        <nav className="flex md:flex-row flex-col justify-between items-center p-2 md:space-x-4 bg-[#c0c0c0] dark:bg-[#15202b] fixed w-screen md:w-full" style={{ boxShadow: "0 0 10px #000" }}>
+        <nav className="flex md:flex-row flex-col justify-between items-center p-2 md:space-x-4 bg-[#c0c0c0] dark:bg-[#15202b] md:fixed md:h-16 w-screen md:w-full z-1000 relative" style={{ boxShadow: "0 0 10px #000" }}>
             <div className="flex items-center space-x-4">
                 {topUser && (
                     <div className="mb-4 md:mb-0 flex items-center gap-3 text-xs md:text-lg font-bold bg-black text-yellow-400 border-2 border-yellow-500 p-1 rounded-xl shadow-lg">
-                        <span className="text-lg md:text-3xl"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACHElEQVR4nO2YO4vVQBSAP8VX56rdCouFleAfsFF/gIWFna5a24qvRkEESx//wFJY7ETuOTGIWoiLnYha+QALH7mambu6qzsSV+FuMNeb3GQSYT4YuORC5nwz58wjEAgEAp3EKq6ovT/bTLMj+gwCNswA7aYQY9bHJI0x+w8CNswAI1PIxawbfm6EpdIpZJRvwy9xN9ngqwYWYnbkBN5WEXg1/JJU2O1LwConcv/F5QWEW6tGQbnmQyCJmTLK61V9R5wsLxBxJCfw3SoHmxRIYqascDfXr7U9pksLuHnWG+VFXsII15sSMLmR/90uUpVU2GeExaYCtv8SEh4MLx6VMMJsGxJGuPdZ2EYdDHrsNcpzL4ErNkubiUf+bzWRKoeNMpcKy7UHLyxlq02lgi1LQ7PxrPHAi/aImlJnzp9AxPEGinbWm0D/Dlut0q8x/5NsE8MnRjlXY/qcwjcuZpNRHteQOo+yd9EGVtluhDf5oMa985rs6OBj2Rwp0WM6G8UKAk8Gwgxd4Fc6CWf+FPZIASHJct7dZiNdo3+fLUY5llzBfbyE+3BhpWW/s2dGOOp9talCUcHyv2CDQIs4x5qiGXDnWUuXWYjZmb/T5jath1+UXXQNt3J/Pm2Ur2PsvItWuNyZZXQQsccKTyscIV6myv7WAv8kbDbKVaP8mOActGyFG9np1mvwVjlQ8Amk6nH63SDikFeJQCAQoA5+Aj1lk4ad5d4kAAAAAElFTkSuQmCC" alt="trophy" /></span>
+                        <span className="w-6"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACHElEQVR4nO2YO4vVQBSAP8VX56rdCouFleAfsFF/gIWFna5a24qvRkEESx//wFJY7ETuOTGIWoiLnYha+QALH7mambu6qzsSV+FuMNeb3GQSYT4YuORC5nwz58wjEAgEAp3EKq6ovT/bTLMj+gwCNswA7aYQY9bHJI0x+w8CNswAI1PIxawbfm6EpdIpZJRvwy9xN9ngqwYWYnbkBN5WEXg1/JJU2O1LwConcv/F5QWEW6tGQbnmQyCJmTLK61V9R5wsLxBxJCfw3SoHmxRIYqascDfXr7U9pksLuHnWG+VFXsII15sSMLmR/90uUpVU2GeExaYCtv8SEh4MLx6VMMJsGxJGuPdZ2EYdDHrsNcpzL4ErNkubiUf+bzWRKoeNMpcKy7UHLyxlq02lgi1LQ7PxrPHAi/aImlJnzp9AxPEGinbWm0D/Dlut0q8x/5NsE8MnRjlXY/qcwjcuZpNRHteQOo+yd9EGVtluhDf5oMa985rs6OBj2Rwp0WM6G8UKAk8Gwgxd4Fc6CWf+FPZIASHJct7dZiNdo3+fLUY5llzBfbyE+3BhpWW/s2dGOOp9talCUcHyv2CDQIs4x5qiGXDnWUuXWYjZmb/T5jath1+UXXQNt3J/Pm2Ur2PsvItWuNyZZXQQsccKTyscIV6myv7WAv8kbDbKVaP8mOActGyFG9np1mvwVjlQ8Amk6nH63SDikFeJQCAQoA5+Aj1lk4ad5d4kAAAAAElFTkSuQmCC" alt="trophy" /></span>
                         <span>
                             1° : <span className="text-white">{topUser.name}</span> -{" "}
                             <span className="text-white">{topUser.score} pontos</span>
@@ -70,7 +70,7 @@ export const Navbar = () => {
                 )}
                 <div className="hidden md:flex md:space-x-4">
                     <ModeToggle />
-                    <div className="flex space-x-4">
+                    {/* <div className="flex space-x-4">
                         <Hint label="Alterar idioma para Português">
                             <img
                                 src="https://adventurous-tortoise-457.convex.cloud/api/storage/58f45b60-cca3-4a20-944f-c846859957fe"
@@ -95,7 +95,7 @@ export const Navbar = () => {
                                 alt="Idioma: Inglês"
                             />
                         </Hint>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </nav>

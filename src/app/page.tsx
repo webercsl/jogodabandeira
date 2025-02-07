@@ -129,7 +129,7 @@ const Game = () => {
     if (gameState === "answering" && unusedFlags.length === 0) {
       setTotalScore(score); // Adiciona o score final
       setGameState("finished");
-  }
+    }
   }, [gameState, timeLeft]);
 
   const handleAnswer = (answer: string) => {
@@ -179,7 +179,7 @@ const Game = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col justify-start items-center bg-[#c0c0c0] dark:bg-[#15202b] md:pt-20 pb-20 overflow-x-hidden md:overflow-y-hidden">
+    <div className="min-h-screen flex flex-col justify-start items-center bg-[#c0c0c0] dark:bg-[#15202b] md:pt-8 pb-20 overflow-x-hidden md:absolute md:top-16 md:-z-10 md:w-full">
       <Link href="/ranking" className="flex gap-2 text-lg font-bold bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl text-black p-3 rounded-lg shadow-lg hover:scale-105 transform transition-all duration-200 ease-in-out m-4">
         Ver Ranking
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
@@ -342,7 +342,7 @@ const Game = () => {
                   Jogar Novamente
                 </Button>
                 {loggedInUser ? (
-                  <p className="mt-8 text-center text-sm font-bold bg-gradient-to-r from-gray-300 via-gray-400 to-gray-500 text-black py-2 px-4 rounded-lg shadow-md">
+                  <p className="mt-4 text-center text-sm font-bold bg-gradient-to-r from-gray-300 via-gray-400 to-gray-500 text-black py-2 px-4 rounded-lg shadow-md">
                     Posição no ranking: {loggedInUserPosition}°
                   </p>
                 ) : (
@@ -350,10 +350,57 @@ const Game = () => {
                     Pontuação não encontrada
                   </span>
                 )}
+
+                {/* Botões de compartilhamento */}
+                <div className="mt-4">Compartilhe com os amigos</div>
+                <div className="mt-2 flex gap-4">
+                  <Button
+                    className="text-white px-0 py-2 rounded-lg cursor-pointer bg-transparent hover:bg-transparent w-18"
+                    onClick={() => {
+                      const message = `Acabei de marcar ${totalScore} pontos neste jogo incrível! Você consegue me vencer? Jogue agora! https://jogodabandeira.vercel.app/`;
+                      window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`, '_blank');
+                    }}
+                  >
+                    <img src="/whatsapp.png" width={40} height={40} alt="Ícone do Whatsapp" />
+                  </Button>
+                  <Button
+                    className="text-white px-0 py-2 rounded-lg cursor-pointer bg-transparent hover:bg-transparent w-18"
+                    onClick={() => {
+                      const url = `https://jogodabandeira.vercel.app/`;
+                      window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+                    }}
+                  >
+                    <img src="/facebook.png" width={40} height={40} alt="Ícone do Facebook" />
+                  </Button>
+                  <Button
+                    className="text-white px-0 py-2 rounded-lg cursor-pointer bg-transparent hover:bg-transparent w-18"
+                    onClick={() => {
+                      const message = `Acabei de marcar ${totalScore} pontos neste jogo incrível! Você consegue me vencer? Jogue agora!`;
+                      const url = `https://jogodabandeira.vercel.app/`;
+                      window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(message)}&url=${encodeURIComponent(url)}`, '_blank');
+                    }}
+                  >
+                    <img src="/twitter.png" width={40} height={40} alt="Ícone do X / Twitter" />
+                  </Button>
+                  <Button
+                    className="bg-gray-500/30 text-white px-2 py-2 rounded-lg hover:bg-gray-600/30"
+                    onClick={() => {
+                      const url = `https://jogodabandeira.vercel.app/`;
+                      navigator.clipboard.writeText(url);
+                      alert('Link copiado para a área de transferência!');
+                    }}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m18.375 12.739-7.693 7.693a4.5 4.5 0 0 1-6.364-6.364l10.94-10.94A3 3 0 1 1 19.5 7.372L8.552 18.32m.009-.01-.01.01m5.699-9.941-7.81 7.81a1.5 1.5 0 0 0 2.112 2.13" />
+                    </svg>
+                    Copiar Link
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           )
         }
+
 
         {gameState === "finished" && (
           <Card className="w-full h-full flex flex-col justify-center items-center bg-gray-400 dark:bg-[#1e2732] border-none">

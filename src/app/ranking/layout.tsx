@@ -5,7 +5,6 @@ interface RankingLayoutProps {
 const RankingLayout = ({ children }: RankingLayoutProps) => {
     return ( 
         <div>
-            <h1>Navbar</h1>
             {children}
         </div>
     );

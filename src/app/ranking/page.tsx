@@ -33,7 +33,7 @@ const RankingPage = () => {
     const { isLoading } = useStoreUserEffect();
 
     return (
-        <div className="min-h-screen flex flex-col justify-start items-center bg-[#c0c0c0] dark:bg-[#15202b] overflow-y-hidden md:pt-20 pt-40">
+        <div className="min-h-screen flex flex-col justify-start items-center bg-[#c0c0c0] dark:bg-[#15202b] md:pt-20 pt-4 md:absolute md:-z-10 md:w-full">
             <Link href="/" className="flex items-center gap-2 text-lg font-bold bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl text-black p-3 rounded-lg shadow-lg hover:scale-105 transform transition-all duration-200 ease-in-out m-4">
                 Voltar para o jogo
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4">
@@ -47,7 +47,7 @@ const RankingPage = () => {
                 <FullscreenLoader />
             ) : (
                 <>
-                    <table className="w-[200px] md:w-[600px] text-sm text-left rtl:text-right">
+                    <table className="w-[200px] md:w-[600px] text-sm text-left rtl:text-right mb-20">
                         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <th scope="col" className="md:px-6 px-2 py-3">Nome</th>

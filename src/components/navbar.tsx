@@ -30,7 +30,7 @@ export const Navbar = () => {
         : undefined;
 
     return (
-        <nav className="flex md:flex-row flex-col justify-between items-center p-2 md:space-x-4 bg-[#c0c0c0] dark:bg-[#15202b] md:fixed md:h-16 w-screen md:w-full z-1000 relative" style={{ boxShadow: "0 0 10px #000" }}>
+        <nav className="flex md:flex-row flex-col justify-between items-center p-2 md:space-x-4 bg-[#c0c0c0] dark:bg-[#15202b] md:h-16 w-screen md:w-full relative md:z-10000 md:fixed md:top-0" style={{ boxShadow: "0 0 10px #000" }}>
             <div className="flex items-center space-x-4">
                 {topUser && (
                     <div className="mb-4 md:mb-0 flex items-center gap-3 text-xs md:text-lg font-bold bg-black text-yellow-400 border-2 border-yellow-500 p-1 rounded-xl shadow-lg">

@@ -10,7 +10,7 @@ import { useUser } from "@clerk/clerk-react";
 
 const RankingPage = () => {
     const users = useQuery(api.ranking.list) || [];
-    const [searchTerm, _setSearchTerm] = useState("");
+    const [searchTerm, setSearchTerm] = useState("");
     const { user } = useUser();
     
     const sortedUsers = users.sort((a, b) => b.score - a.score);
@@ -56,7 +56,7 @@ const RankingPage = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {filteredUsers.map((user, _index) => {
+                            {filteredUsers.map((user, index) => {
                                 const realPosition = sortedUsers.indexOf(user) + 1;
 
                                 const positionClass =

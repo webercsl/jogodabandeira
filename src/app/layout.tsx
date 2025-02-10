@@ -53,8 +53,15 @@ export default function RootLayout({
         }}
       >
         <ConvexClientProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
             <Navbar />
             {children}
+          </ThemeProvider>
         </ConvexClientProvider>
       </body>
     </html>

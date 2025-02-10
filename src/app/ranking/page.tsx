@@ -87,7 +87,6 @@ const RankingPage = () => {
                                         </th>
                                         <td className="px-6 py-4 text-center">{user.score}</td>
                                         <td className="px-6 py-4 text-center">{realPosition}°</td>
-                                        <td className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-reflection"></td>
                                     </tr>
                                 );
                             })}

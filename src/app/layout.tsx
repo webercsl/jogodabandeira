@@ -5,6 +5,8 @@ import { Navbar } from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider"
 import { ConvexClientProvider } from "@/components/convex-client-provider";
 
+import { Analytics } from "@vercel/analytics/react"
+
 import "./globals.css";
 
 const nunito = Nunito({ subsets: ["latin"] });
@@ -59,6 +61,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+            <Analytics />
             <Navbar />
             {children}
           </ThemeProvider>

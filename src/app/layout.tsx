@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { ConvexClientProvider } from "@/components/convex-client-provider";
 
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import "./globals.css";
 
@@ -62,6 +63,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <Analytics />
+            <SpeedInsights />
             <Navbar />
             {children}
           </ThemeProvider>

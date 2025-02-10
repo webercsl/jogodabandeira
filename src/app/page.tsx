@@ -127,13 +127,13 @@ const Game = () => {
     }
 
     if (gameState === "answering" && unusedFlags.length === 0) {
-      setTotalScore(score); // Adiciona o score final
+      setTotalScore(score);
       setGameState("finished");
     }
   }, [gameState, timeLeft]);
 
   const handleAnswer = (answer: string) => {
-    if (gameState !== "playing") return; // Previne alterações fora do estado "playing"
+    if (gameState !== "playing") return;
 
     setSelectedOption(answer);
     const correct = answer === currentFlag?.namePT;
@@ -145,7 +145,7 @@ const Game = () => {
       setBonus(bonusScore);
     }
 
-    setGameState("answering"); // Adiciona um estado intermediário para prevenir conflitos
+    setGameState("answering");
 
     setTimeout(() => {
       setSelectedOption(null);
@@ -237,12 +237,12 @@ const Game = () => {
                   src={currentFlag.image}
                   alt={`Bandeira de ${currentFlag.namePT}`}
                   className="h-40 w-full object-contain"
-                  onLoad={() => setIsFlagLoaded(true)} // Garantia adicional para carregar
+                  onLoad={() => setIsFlagLoaded(true)}
                 />
               )}
             </CardHeader>
             <CardContent className="w-72">
-              {isFlagLoaded ? ( // Só renderiza as opções se a bandeira estiver carregada
+              {isFlagLoaded ? (
                 <div className="flex flex-col mt-4">
                   {options.map((option) => (
                     <Button
@@ -265,7 +265,7 @@ const Game = () => {
               ) : (
                 <div className="w-full h-full flex flex-col justify-center items-center bg-gray-400 dark:bg-[#1e2732] border-none">
                   <Loader />
-                </div> // Mostra um loader ou texto temporário
+                </div>
               )}
               <Separator className="my-4" />
               <div className="flex justify-between">
@@ -354,15 +354,15 @@ const Game = () => {
                 {/* Botões de compartilhamento */}
                 <div className="mt-4">Compartilhe com os amigos</div>
                 <div className="mt-2 flex gap-4">
-                    <Button
+                  <Button
                     className="text-white px-0 py-2 rounded-lg cursor-pointer bg-transparent hover:bg-transparent w-18 transform transition-transform duration-100 hover:scale-110 ease-linear"
                     onClick={() => {
                       const message = `Acabei de marcar ${totalScore} pontos neste jogo incrível! Você consegue me vencer? Jogue agora! https://jogodabandeira.com.br/`;
                       window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`, '_blank');
                     }}
-                    >
+                  >
                     <img src="/whatsapp.png" width={40} height={40} alt="Ícone do Whatsapp" />
-                    </Button>
+                  </Button>
                   <Button
                     className="text-white px-0 py-2 rounded-lg cursor-pointer bg-transparent hover:bg-transparent w-18 transform transition-transform duration-100 hover:scale-110 ease-linear"
                     onClick={() => {
@@ -403,16 +403,31 @@ const Game = () => {
 
 
         {gameState === "finished" && (
-          <Card className="w-full h-full flex flex-col justify-center items-center bg-gray-400 dark:bg-[#1e2732] border-none">
-            <CardHeader>
-              <CardTitle className="text-4xl">Você acertou todas as bandeiras!</CardTitle>
+          <Card className="w-full h-full flex flex-col justify-end items-center bg-gradient-to-b from-gray-400 via-gray-500 to-gray-600 dark:bg-gradient-to-b dark:from-[#1e2732] dark:via-[#2a3b48] dark:to-[#1e2732] border-none relative rounded-2xl overflow-hidden shadow-lg">
+            <img
+              src="/gg.webp"
+              alt="Background"
+              className="absolute inset-0 w-full h-full object-cover opacity-20"
+            />
+            <CardHeader className="relative z-10 text-center">
+              <CardTitle className="text-5xl text-[#e7f2ff] font-extrabold">Parabéns!</CardTitle>
             </CardHeader>
-            <CardContent className="flex flex-col items-center justify-center">
-              <p className="text-lg">Pontuação Final: {totalScore}</p>
-              <Button onClick={startGame}>Jogar Novamente</Button>
+            <CardContent className="flex flex-col items-center justify-center z-10 text-center text-white px-4 py-6 w-[320px]">
+              <h1 className="text-2xl font-bold mb-2">Você acertou todas as bandeiras!</h1>
+              <h3 className="text-lg mb-4">Quer melhorar sua pontuação?<br/> Seja ainda mais rápido!</h3>
+              <p className="text-2xl font-extrabold text-amber-400">Pontuação Final: {totalScore}</p>
+              <Button
+                  variant="default"
+                  size="lg"
+                  className="mt-4 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                  onClick={startGame}
+                >
+                  Jogar Novamente
+                </Button>
             </CardContent>
           </Card>
         )}
+
       </div >
     </div >
   );

@@ -64,7 +64,7 @@ export const Navbar = () => {
                     <>
                         <h2>Quer registrar sua pontuação no ranking?</h2>
                         <SignInButton mode="modal">
-                            <span className="hover:underline cursor-pointer">Login</span>
+                            <span className="hover:underline cursor-pointer md:pr-8">Login</span>
                         </SignInButton>
                     </>
                 )}

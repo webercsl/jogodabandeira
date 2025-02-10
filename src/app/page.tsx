@@ -62,6 +62,7 @@ const Game = () => {
     setTotalScore(0);
     setTimeLeft(12);
     setUsedFlags([]);
+    setQuestionCount(0);
   };
 
   const generateQuestion = () => {

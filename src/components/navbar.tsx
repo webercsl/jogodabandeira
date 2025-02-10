@@ -43,7 +43,7 @@ export const Navbar = () => {
                 )}
             </div>
             <div className="text-lg text-center font-bold text-orange-500 animate-pulse mb-2 md:mb-0">
-                <span>Você e mais {totalPlayers} pessoas já encararam esse desafio!</span>
+                <span>Você e mais <span className="text-emerald-400">{totalPlayers}</span> pessoas já encararam esse desafio!</span>
             </div>
             <div className="gap-4 flex flex-col md:flex-row items-center md:space-x-4">
                 {isAuthenticated ? (

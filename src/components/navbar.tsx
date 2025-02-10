@@ -3,8 +3,6 @@
 import { api } from "../../convex/_generated/api";
 import { useQuery } from "convex/react";
 
-import { Hint } from "@/components/hint";
-import { ModeToggle } from "./ui/dark-mode-toggle";
 import { useStoreUserEffect } from "@/features/users/api/storeUsers";
 
 import { useUser } from "@clerk/clerk-react";
@@ -29,6 +27,8 @@ export const Navbar = () => {
         ? sortedRanking.indexOf(loggedInUser) + 1
         : undefined;
 
+    const totalPlayers = ranking.length;
+
     return (
         <nav className="flex md:flex-row flex-col justify-between items-center p-2 md:space-x-4 bg-[#c0c0c0] dark:bg-[#15202b] md:h-16 w-screen md:w-full relative md:z-10000 md:fixed md:top-0" style={{ boxShadow: "0 0 10px #000" }}>
             <div className="flex items-center space-x-4">
@@ -41,6 +41,9 @@ export const Navbar = () => {
                         </span>
                     </div>
                 )}
+            </div>
+            <div className="text-lg text-center font-bold text-orange-500 animate-pulse mb-2 md:mb-0">
+                <span>Você e mais {totalPlayers} pessoas já encararam esse desafio!</span>
             </div>
             <div className="gap-4 flex flex-col md:flex-row items-center md:space-x-4">
                 {isAuthenticated ? (
@@ -64,7 +67,7 @@ export const Navbar = () => {
                     <>
                         <h2>Quer registrar sua pontuação no ranking?</h2>
                         <SignInButton mode="modal">
-                            <span className="hover:underline cursor-pointer md:pr-8">Login</span>
+                            <span className="hover:underline cursor-pointer md:pr-6">Login</span>
                         </SignInButton>
                     </>
                 )}

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
+import Script from "next/script";
 
 import { Navbar } from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider"
@@ -52,6 +53,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
+      <head>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1262571996393910"
+          crossOrigin="anonymous">
+        </Script>
+      </head>
       <body
         className={nunito.className}
         style={{

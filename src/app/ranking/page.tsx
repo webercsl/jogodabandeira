@@ -34,14 +34,14 @@ const RankingPage = () => {
 
     return (
         <div className="min-h-screen flex flex-col justify-start items-center bg-[#c0c0c0] dark:bg-[#15202b] md:pt-20 pt-4 md:absolute md:-z-10 md:w-full">
-            <Link href="/" className="flex items-center gap-2 text-lg font-bold bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl text-black p-3 rounded-lg shadow-lg hover:scale-105 transform transition-all duration-200 ease-in-out m-4">
+            <Link href="/" className="flex items-center gap-2 text-lg font-bold bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl text-white p-3 rounded-lg shadow-lg hover:scale-105 transform transition-all duration-200 ease-in-out m-4">
                 Voltar para o jogo
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
                 </svg>
             </Link>
             <h1 className="text-3xl font-bold mb-6 text-center text-black dark:text-white">
-                Ranking
+                Ranking - Top 10
             </h1>
             {isLoading ? (
                 <FullscreenLoader />

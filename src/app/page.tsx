@@ -254,7 +254,7 @@ const Game = () => {
                             : "wrong"
                           : "outline"
                       }
-                      className="mb-2"
+                      className="mb-2 bg-[#131313] hover:bg-[#131313] md:hover:bg-[#3d4c5e]"
                       onClick={() => handleAnswer(option)}
                       disabled={selectedOption !== null}
                     >
@@ -354,29 +354,29 @@ const Game = () => {
                 {/* Botões de compartilhamento */}
                 <div className="mt-4">Compartilhe com os amigos</div>
                 <div className="mt-2 flex gap-4">
-                  <Button
-                    className="text-white px-0 py-2 rounded-lg cursor-pointer bg-transparent hover:bg-transparent w-18"
+                    <Button
+                    className="text-white px-0 py-2 rounded-lg cursor-pointer bg-transparent hover:bg-transparent w-18 transform transition-transform duration-100 hover:scale-110 ease-linear"
                     onClick={() => {
-                      const message = `Acabei de marcar ${totalScore} pontos neste jogo incrível! Você consegue me vencer? Jogue agora! https://jogodabandeira.vercel.app/`;
+                      const message = `Acabei de marcar ${totalScore} pontos neste jogo incrível! Você consegue me vencer? Jogue agora! https://jogodabandeira.com.br/`;
                       window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`, '_blank');
                     }}
-                  >
+                    >
                     <img src="/whatsapp.png" width={40} height={40} alt="Ícone do Whatsapp" />
-                  </Button>
+                    </Button>
                   <Button
-                    className="text-white px-0 py-2 rounded-lg cursor-pointer bg-transparent hover:bg-transparent w-18"
+                    className="text-white px-0 py-2 rounded-lg cursor-pointer bg-transparent hover:bg-transparent w-18 transform transition-transform duration-100 hover:scale-110 ease-linear"
                     onClick={() => {
-                      const url = `https://jogodabandeira.vercel.app/`;
+                      const url = `https://jogodabandeira.com.br/`;
                       window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
                     }}
                   >
                     <img src="/facebook.png" width={40} height={40} alt="Ícone do Facebook" />
                   </Button>
                   <Button
-                    className="text-white px-0 py-2 rounded-lg cursor-pointer bg-transparent hover:bg-transparent w-18"
+                    className="text-white px-0 py-2 rounded-lg cursor-pointer bg-transparent hover:bg-transparent w-18 transform transition-transform duration-100 hover:scale-110 ease-linear"
                     onClick={() => {
                       const message = `Acabei de marcar ${totalScore} pontos neste jogo incrível! Você consegue me vencer? Jogue agora!`;
-                      const url = `https://jogodabandeira.vercel.app/`;
+                      const url = `https://jogodabandeira.com.br/`;
                       window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(message)}&url=${encodeURIComponent(url)}`, '_blank');
                     }}
                   >
@@ -385,7 +385,7 @@ const Game = () => {
                   <Button
                     className="bg-gray-500/30 text-white px-2 py-2 rounded-lg hover:bg-gray-600/30"
                     onClick={() => {
-                      const url = `https://jogodabandeira.vercel.app/`;
+                      const url = `https://jogodabandeira.com.br/`;
                       navigator.clipboard.writeText(url);
                       alert('Link copiado para a área de transferência!');
                     }}

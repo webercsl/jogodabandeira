@@ -68,35 +68,6 @@ export const Navbar = () => {
                         </SignInButton>
                     </>
                 )}
-                <div className="hidden md:flex md:space-x-4">
-                    <ModeToggle />
-                    {/* <div className="flex space-x-4">
-                        <Hint label="Alterar idioma para Português">
-                            <img
-                                src="https://adventurous-tortoise-457.convex.cloud/api/storage/58f45b60-cca3-4a20-944f-c846859957fe"
-                                className="cursor-pointer transform hover:scale-125 transition-transform duration-200"
-                                width={32}
-                                alt="Idioma: Português"
-                            />
-                        </Hint>
-                        <Hint label="Alterar idioma para Espanhol (Em desenvolvimento)">
-                            <img
-                                src="https://adventurous-tortoise-457.convex.cloud/api/storage/a3d46ebc-12ae-4d93-936b-61b792af2d3d"
-                                className="cursor-pointer transform hover:scale-125 transition-transform duration-200"
-                                width={32}
-                                alt="Idioma: Espanhol"
-                            />
-                        </Hint>
-                        <Hint label="Alterar idioma para Inglês (Em desenvolvimento)">
-                            <img
-                                src="https://adventurous-tortoise-457.convex.cloud/api/storage/a2174f61-0400-4e28-affb-6767779dbcf7"
-                                className="cursor-pointer transform hover:scale-125 transition-transform duration-200"
-                                width={32}
-                                alt="Idioma: Inglês"
-                            />
-                        </Hint>
-                    </div> */}
-                </div>
             </div>
         </nav>
     );

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Jogo da bandeira",
     description: "Teste seus conhecimentos sobre bandeiras de diferentes países.",
-    url: "https://jogodabandeira.vercel.app/",
+    url: "https://jogodabandeira.com.br/",
     siteName: "Jogo da bandeira",
     images: [
       {
@@ -53,15 +53,8 @@ export default function RootLayout({
         }}
       >
         <ConvexClientProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-          >
             <Navbar />
             {children}
-          </ThemeProvider>
         </ConvexClientProvider>
       </body>
     </html>

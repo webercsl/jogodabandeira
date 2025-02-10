@@ -18,19 +18,29 @@ export const list = query({
 export const getScore = query({
     args: {},
     handler: async (ctx) => {
-        const identity = await ctx.auth.getUserIdentity();
-        if (identity === null) {
-            return { score: null }; // Return null score if not authenticated
-        }
+        try {
+            const identity = await ctx.auth.getUserIdentity();
+            if (!identity) {
+                return { score: null };
+            }
 
-        const user = await ctx.db.query("users").filter(q => q.eq(q.field("tokenIdentifier"), identity.tokenIdentifier)).first();
-        if (!user) {
-            throw new Error("User not found");
-        }
+            const user = await ctx.db
+                .query("users")
+                .filter(q => q.eq(q.field("tokenIdentifier"), identity.tokenIdentifier))
+                .first();
 
-        return { score: user.score };
+            if (!user) {
+                return { score: null };
+            }
+
+            return { score: user.score };
+        } catch (error) {
+            console.error("Erro ao buscar score:", error);
+            return { score: null };
+        }
     },
 });
+
 
 export const update = mutation({
     args: {

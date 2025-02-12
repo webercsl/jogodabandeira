@@ -28,7 +28,7 @@ import {
 import { Label } from "@/components/ui/label"
 
 
-export const DropdownMenuButton = () => {
+export const DropdownMenuButtonSpanish = () => {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild className="cursor-pointer hover:bg-slate-200/10 rounded-full p-2 h-10 w-10">
@@ -43,30 +43,30 @@ export const DropdownMenuButton = () => {
                         <DialogTrigger asChild>
                             <div className="flex items-center">
                                 <CircleHelp />
-                                <DropdownMenuLabel>Como jogar</DropdownMenuLabel>
+                                <DropdownMenuLabel>Cómo jugar</DropdownMenuLabel>
                             </div>
                         </DialogTrigger>
                     </DropdownMenuItem>
                     <DialogContent className="sm:max-w-lg p-8">
                         <DialogHeader>
-                            <DialogTitle className="text-3xl font-bold">Como Jogar</DialogTitle>
+                            <DialogTitle className="text-3xl font-bold">Cómo jugar</DialogTitle>
                             <DialogDescription className="text-lg leading-relaxed">
-                                O jogo consiste em adivinhar corretamente a bandeira do país apresentada.
-                                Você verá uma imagem de uma bandeira e deverá escolher entre quatro opções de nomes de países.
+                                El juego consiste en adivinar correctamente la bandera del país mostrado.
+                                Verá una imagen de una bandera y se le pedirá que elija entre cuatro opciones de nombres de países.
                                 <br /><br />
-                                <strong>- Para começar:</strong> Clique em <i>"Jogar"</i>.<br />
-                                <strong>- Pontos:</strong> Quanto mais rápido você responder corretamente, mais pontos você ganhará!<br />
-                                <strong>- Fim de jogo:</strong> Se errar, o jogo termina e sua pontuação final será registrada.
+                                <strong>- Para empezar:</strong> Haga clic en <i>"Jugar"</i>.<br />
+                                <strong>- Puntos:</strong> ¡Cuanto más rápido respondas correctamente, más puntos ganarás!<br />
+                                <strong>- Fin del juego:</strong> Si cometes un error, el juego termina y se registrará tu puntuación final.
                                 <br /><br />
-                                Após o término da partida, será gerado um link para você compartilhar sua pontuação com seus amigos!
+                                ¡Después de que termine el partido, se generará un enlace para que puedas compartir tu puntuación con tus amigos!
                                 <br /><br />
-                                Boa sorte e divirta-se!
+                                ¡Buena suerte y diviértete!
                             </DialogDescription>
                         </DialogHeader>
                         <DialogFooter className="sm:justify-start">
                             <DialogClose asChild>
                                 <Button type="button" variant="secondary" className="text-lg px-6 py-3">
-                                    Fechar
+                                    Cerrar
                                 </Button>
                             </DialogClose>
                         </DialogFooter>
@@ -86,23 +86,23 @@ export const DropdownMenuButton = () => {
                     </DropdownMenuItem>
                     <DialogContent className="sm:max-w-lg p-8">
                         <DialogHeader>
-                            <DialogTitle className="text-3xl font-bold">Ranking de Pontuação</DialogTitle>
+                            <DialogTitle className="text-3xl font-bold">Ranking de Puntuación</DialogTitle>
                             <DialogDescription className="text-lg leading-relaxed">
-                                O jogo possui um <strong>ranking de pontuação</strong> onde você pode competir com outros jogadores!
-                                Para ter sua pontuação registrada e aparecer no ranking, basta fazer login com sua <strong>conta Google</strong>.
+                                ¡El juego tiene un <strong>ranking de puntuación</strong> donde puedes competir con otros jugadores!
+                                Para que tu puntuación quede registrada y aparezca en el ranking, simplemente inicia sesión con tu <strong>cuenta de Google</strong>.
                                 <br /><br />
-                                <strong>Por que usamos a conta Google?</strong><br />
-                                - Rápido e seguro.<br />
-                                - Sem necessidade de criar novas senhas.<br />
-                                - Apenas sua pontuação será armazenada.
+                                <strong>¿Por qué utilizamos la cuenta de Google?</strong><br />
+                                - Rápido y seguro.<br />
+                                - No es necesario crear nuevas contraseñas.<br />
+                                - Sólo se almacenará tu puntuación.
                                 <br /><br />
-                                Mostre suas habilidades e tente alcançar o topo do ranking!
+                                ¡Demuestra tus habilidades e intenta llegar a lo más alto del ranking!
                             </DialogDescription>
                         </DialogHeader>
                         <DialogFooter className="sm:justify-start">
                             <DialogClose asChild>
                                 <Button type="button" variant="secondary" className="text-lg px-6 py-3">
-                                    Fechar
+                                    Cerrar
                                 </Button>
                             </DialogClose>
                         </DialogFooter>
@@ -124,13 +124,13 @@ export const DropdownMenuButton = () => {
                         <DialogHeader>
                             <DialogTitle className="text-3xl font-bold">Créditos</DialogTitle>
                             <DialogDescription className="text-lg leading-relaxed">
-                                Este jogo foi desenvolvido por:
+                            Este juego fue desarrollado por:
                                 <br /><br />
                                 <div className="flex items-center gap-4">
                                     <img className="w-10 h-10 rounded-full" src="https://curious-fish-513.convex.cloud/api/storage/08705cce-2ab0-4816-867f-95902c654af1" alt="Foto de Gustavo Weber" />
                                     <div className="font-medium dark:text-white">
                                         <div>Gustavo Weber</div>
-                                        <div className="text-sm text-gray-500 dark:text-gray-400">Estudante de Engenharia da Computação</div>
+                                        <div className="text-sm text-gray-500 dark:text-gray-400">Estudiante de Ingeniería en Computación</div>
                                     </div>
                                 </div>
                                 <br />
@@ -138,7 +138,7 @@ export const DropdownMenuButton = () => {
                                     <img className="w-10 h-10 rounded-full" src="https://curious-fish-513.convex.cloud/api/storage/8210adcb-e13e-4ee2-9f01-6f4a7725f5b7" alt="Foto de Eduardo Motter" />
                                     <div className="font-medium dark:text-white">
                                         <div>Eduardo Motter</div>
-                                        <div className="text-sm text-gray-500 dark:text-gray-400">Estudante de Ciências da Computação</div>
+                                        <div className="text-sm text-gray-500 dark:text-gray-400">Estudiante de Ciencias de la Computación</div>
                                     </div>
                                 </div>
                             </DialogDescription>
@@ -146,7 +146,7 @@ export const DropdownMenuButton = () => {
                         <DialogFooter className="sm:justify-start">
                             <DialogClose asChild>
                                 <Button type="button" variant="secondary" className="text-lg px-6 py-3">
-                                    Fechar
+                                    Cerrar
                                 </Button>
                             </DialogClose>
                         </DialogFooter>
@@ -160,15 +160,15 @@ export const DropdownMenuButton = () => {
                         <DialogTrigger asChild>
                             <div className="flex items-center">
                                 <MessageCircle />
-                                <DropdownMenuLabel>Feedback</DropdownMenuLabel>
+                                <DropdownMenuLabel>Comentario</DropdownMenuLabel>
                             </div>
                         </DialogTrigger>
                     </DropdownMenuItem>
                     <DialogContent className="sm:max-w-lg p-8">
                         <DialogHeader>
-                            <DialogTitle className="text-3xl font-bold">Envie seu Feedback</DialogTitle>
+                            <DialogTitle className="text-3xl font-bold">Envíanos tus comentarios</DialogTitle>
                             <DialogDescription className="text-lg leading-relaxed">
-                                Queremos saber sua opinião! Deixe aqui seu feedback e nos ajude a melhorar o jogo.
+                                ¡Queremos escuchar tu opinión! Deja tus comentarios aquí y ayúdanos a mejorar el juego.
                             </DialogDescription>
                         </DialogHeader>
                         <form
@@ -180,27 +180,27 @@ export const DropdownMenuButton = () => {
                             }}
                         >
                             <div className="flex flex-col gap-4">
-                                <Label htmlFor="feedback" className="text-lg font-semibold">Sua Mensagem</Label>
+                                <Label htmlFor="feedback" className="text-lg font-semibold">Tu mensaje</Label>
                                 <textarea
                                     id="feedback"
                                     name="feedback"
                                     rows={4}
                                     required
                                     className="w-full border rounded-md p-4 text-lg"
-                                    placeholder="Escreva seu feedback aqui..."
+                                    placeholder="Escribe tus comentarios aquí..."
                                 />
                                 <Button type="submit" className="text-lg px-6 py-3 hover:bg-slate-300 flex">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
                                     </svg>
-                                    Enviar Feedback
+                                    Enviar Comentarios
                                 </Button>
                             </div>
                         </form>
                         <DialogFooter className="sm:justify-start">
                             <DialogClose asChild>
                                 <Button type="button" variant="secondary" className="text-lg px-6 py-3">
-                                    Fechar
+                                    Cerrar
                                 </Button>
                             </DialogClose>
                         </DialogFooter>

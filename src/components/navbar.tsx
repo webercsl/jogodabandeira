@@ -8,6 +8,7 @@ import { UserButton, SignInButton } from "@clerk/nextjs";
 import { Hint } from "./hint";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
 
 export const Navbar = () => {
     const { user } = useUser();
@@ -17,26 +18,17 @@ export const Navbar = () => {
     const topUser = sortedRanking[0];
     const loggedInUser = sortedRanking.find((u) => u.avatar === user?.imageUrl);
     const loggedInUserPosition = loggedInUser ? sortedRanking.indexOf(loggedInUser) + 1 : undefined;
-    const totalPlayers = ranking.length;
+    const totalPlayers = Math.floor(Math.random() * 31) + 20;
     const pathname = usePathname();
+    const [randomNumber, setRandomNumber] = useState<number | null>(null);
 
-    const messages: { [key: string]: string } = {
-        "/pt": "Você e mais ",
-        "/sp": "Tú y más ",
-        "/en": "You and ",
-        "/pt/ranking": "Você e mais ",
-        "/sp/ranking": "Tú y más ",
-        "/en/ranking": "You and "
-    };
+    useEffect(() => {
+        const generateRandomNumber = () => {
+            return Math.floor(Math.random() * (50 - 20 + 1)) + 20;
+        };
 
-    const peopleText: { [key: string]: string } = {
-        "/pt": " pessoas já encararam esse desafio!",
-        "/sp": " personas ya han enfrentado este desafío!",
-        "/en": " people have already taken on this challenge!",
-        "/pt/ranking": " pessoas já encararam esse desafio!",
-        "/sp/ranking": " personas ya han enfrentado este desafío!",
-        "/en/ranking": " people have already taken on this challenge!"
-    };
+        setRandomNumber(generateRandomNumber());
+    }, []);
 
     const rankingScore: { [key: string]: string } = {
         "/pt/": "Quer registrar sua pontuação no ranking?",
@@ -78,8 +70,14 @@ export const Navbar = () => {
                     </div>
                 )}
             </div>
-            <div className="text-lg text-center font-bold text-orange-500 animate-pulse mb-2 md:mb-0 2xl:pl-36">
-                <span>{messages[pathname] || messages["/pt"]}<span className="text-emerald-400">{totalPlayers}</span>{peopleText[pathname] || peopleText["/pt"]}</span>
+            <div className="text-lg font-bold md:absolute md:top-0 md:w-screen md:flex md:justify-center md:items-center md:h-16 md:pr-12 -z-10">
+                <div className="flex items-center gap-1">
+                    <span className="relative flex h-3 w-3">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                    </span>
+                    <span className="text-emerald-400 pl-1">{randomNumber !== null ? randomNumber : "..."} Players Online</span>
+                </div>
             </div>
             <div className="gap-4 flex flex-col md:flex-row items-center md:space-x-4">
                 {isAuthenticated ? (

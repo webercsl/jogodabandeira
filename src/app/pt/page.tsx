@@ -190,7 +190,7 @@ const Game = () => {
     }
 
     return (
-        <div className="min-h-screen flex flex-col justify-start items-center bg-[#c0c0c0] dark:bg-[#15202b] md:pt-8 pb-20 overflow-x-hidden md:absolute md:top-16 md:-z-10 md:w-full">
+        <div className="min-h-screen flex flex-col justify-start items-center bg-[#c0c0c0] dark:bg-[#15202b] md:pt-8 pb-20 overflow-x-hidden md:absolute md:top-16 md:-z-10 md:w-full md:overflow-y-hidden">
             <Link href={rankingPath} className="flex gap-2 text-lg font-bold bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl text-white p-3 rounded-lg shadow-lg hover:scale-105 transform transition-all duration-200 ease-in-out m-4">
                 Ranking
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
@@ -203,16 +203,17 @@ const Game = () => {
                     <DropdownMenuButton />
                 </nav>
                 {gameState === "start" && (
-                    <Card className="w-full h-full flex flex-col justify-center items-center bg-gray-400 dark:bg-[#1e2732] border-none relative rounded-2xl">
+                    <Card className="w-full h-full flex flex-col justify-end items-center bg-gray-400 dark:bg-[#1e2732] border-none relative rounded-2xl">
                         <img
                             src="/start.webp"
                             alt="Tela Inicial"
-                            className="absolute inset-0 w-full h-full object-cover opacity-40 rounded-2xl"
+                            className="absolute z-0 inset-0 w-full h-full object-cover opacity-40 rounded-2xl"
                         />
+                        <img src="/logo.png" width={400} alt="Logo" className="absolute top-12 z-100"/>
                         <Button
                             size="lg"
                             onClick={startGame}
-                            className="flex gap-2 text-3xl font-bold bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl text-white p-8 rounded-lg shadow-lg transform transition-all duration-500 ease-in-out hover:scale-105"
+                            className="flex mb-12 gap-2 text-3xl font-bold bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl text-white p-8 rounded-lg shadow-lg transform transition-all duration-500 ease-in-out hover:scale-105"
                         >
                             Jogar
                         </Button>

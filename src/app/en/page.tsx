@@ -208,12 +208,13 @@ const Game = () => {
                             alt="Start screen"
                             className="absolute inset-0 w-full h-full object-cover opacity-40 rounded-2xl"
                         />
+                        <img src="/logo.png" width={400} alt="Logo" className="absolute top-12 z-100"/>
                         <Button
                             size="lg"
                             onClick={startGame}
-                            className="flex gap-2 text-3xl font-bold bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl text-white p-8 rounded-lg shadow-lg transform transition-all duration-500 ease-in-out hover:scale-105"
+                            className="flex mb-12 gap-2 text-3xl font-bold bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl text-white p-8 rounded-lg shadow-lg transform transition-all duration-500 ease-in-out hover:scale-105"
                         >
-                            Play
+                            Jogar
                         </Button>
                     </Card>
                 )}

@@ -23,31 +23,46 @@ export const Navbar = () => {
     const messages: { [key: string]: string } = {
         "/pt": "Você e mais ",
         "/sp": "Tú y más ",
-        "/en": "You and "
+        "/en": "You and ",
+        "/pt/ranking": "Você e mais ",
+        "/sp/ranking": "Tú y más ",
+        "/en/ranking": "You and "
     };
 
     const peopleText: { [key: string]: string } = {
         "/pt": " pessoas já encararam esse desafio!",
         "/sp": " personas ya han enfrentado este desafío!",
-        "/en": " people have already taken on this challenge!"
+        "/en": " people have already taken on this challenge!",
+        "/pt/ranking": " pessoas já encararam esse desafio!",
+        "/sp/ranking": " personas ya han enfrentado este desafío!",
+        "/en/ranking": " people have already taken on this challenge!"
     };
 
     const rankingScore: { [key: string]: string } = {
-        "/pt": "Quer registrar sua pontuação no ranking?",
-        "/sp": "¿Quieres registrar tu puntuación de clasificación?",
-        "/en": "Want to record your ranking score?"
+        "/pt/": "Quer registrar sua pontuação no ranking?",
+        "/sp/": "¿Quieres registrar tu puntuación de clasificación?",
+        "/en/": "Want to record your ranking score?",
+        "/pt/ranking": "Quer registrar sua pontuação no ranking?",
+        "/sp/ranking": "¿Quieres registrar tu puntuación de clasificación?",
+        "/en/ranking": "Want to record your ranking score?"
     };
 
     const userPosition: { [key: string]: string } = {
         "/pt": "Sua posição:",
         "/sp": "Tu posición:",
-        "/en": "Your position:"
+        "/en": "Your position:",
+        "/pt/ranking": "Sua posição:",
+        "/sp/ranking": "Tu posición:",
+        "/en/ranking": "Your position:"
     };
 
     const userScore: { [key: string]: string } = {
         "/pt": " pontos",
         "/sp": " puntos",
-        "/en": " points"
+        "/en": " points",
+        "/pt/ranking": " pontos",
+        "/sp/ranking": " puntos",
+        "/en/ranking": " points"
     };
 
     return (

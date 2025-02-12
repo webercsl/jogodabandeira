@@ -61,7 +61,7 @@ export const Navbar = () => {
         <nav className="flex md:flex-row flex-col justify-between items-center p-2 md:space-x-2 bg-[#c0c0c0] dark:bg-[#15202b] md:h-16 w-screen md:w-full relative md:z-10000 md:fixed md:top-0" style={{ boxShadow: "0 0 10px #000" }}>
             <div className="flex items-center space-x-4">
                 {topUser && (
-                    <div className="mb-4 md:mb-0 flex items-center gap-3 text-sm md:text-lg font-bold bg-black text-yellow-400 border-2 border-yellow-500 p-1 rounded-xl shadow-lg">
+                    <div className="mb-2 md:mb-0 flex items-center gap-3 text-sm md:text-lg font-bold bg-black text-yellow-400 border-2 border-yellow-500 p-1 rounded-xl shadow-lg">
                         <span className="w-6"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACHElEQVR4nO2YO4vVQBSAP8VX56rdCouFleAfsFF/gIWFna5a24qvRkEESx//wFJY7ETuOTGIWoiLnYha+QALH7mambu6qzsSV+FuMNeb3GQSYT4YuORC5nwz58wjEAgEAp3EKq6ovT/bTLMj+gwCNswA7aYQY9bHJI0x+w8CNswAI1PIxawbfm6EpdIpZJRvwy9xN9ngqwYWYnbkBN5WEXg1/JJU2O1LwConcv/F5QWEW6tGQbnmQyCJmTLK61V9R5wsLxBxJCfw3SoHmxRIYqascDfXr7U9pksLuHnWG+VFXsII15sSMLmR/90uUpVU2GeExaYCtv8SEh4MLx6VMMJsGxJGuPdZ2EYdDHrsNcpzL4ErNkubiUf+bzWRKoeNMpcKy7UHLyxlq02lgi1LQ7PxrPHAi/aImlJnzp9AxPEGinbWm0D/Dlut0q8x/5NsE8MnRjlXY/qcwjcuZpNRHteQOo+yd9EGVtluhDf5oMa985rs6OBj2Rwp0WM6G8UKAk8Gwgxd4Fc6CWf+FPZIASHJct7dZiNdo3+fLUY5llzBfbyE+3BhpWW/s2dGOOp9talCUcHyv2CDQIs4x5qiGXDnWUuXWYjZmb/T5jath1+UXXQNt3J/Pm2Ur2PsvItWuNyZZXQQsccKTyscIV6myv7WAv8kbDbKVaP8mOActGyFG9np1mvwVjlQ8Amk6nH63SDikFeJQCAQoA5+Aj1lk4ad5d4kAAAAAElFTkSuQmCC" alt="trophy" /></span>
                         <span>
                             1° : <span className="text-white">{topUser.name}</span> -{" "}
@@ -70,7 +70,7 @@ export const Navbar = () => {
                     </div>
                 )}
             </div>
-            <div className="text-lg font-bold md:absolute md:top-0 md:w-screen md:flex md:justify-center md:items-center md:h-16 md:pr-12 -z-10">
+            <div className="text-lg font-bold md:absolute md:top-0 md:w-screen md:flex md:justify-center md:items-center md:h-16 md:pr-12 md:-z-10 z-0 mb-2 md:mb-0">
                 <div className="flex items-center gap-1">
                     <span className="relative flex h-3 w-3">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>

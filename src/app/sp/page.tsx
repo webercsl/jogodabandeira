@@ -203,7 +203,7 @@ const Game = () => {
                     <DropdownMenuButtonSpanish />
                 </nav>
                 {gameState === "start" && (
-                    <Card className="w-full h-full flex flex-col justify-center items-center bg-gray-400 dark:bg-[#1e2732] border-none relative rounded-2xl">
+                    <Card className="w-full h-full flex flex-col justify-end items-center bg-gray-400 dark:bg-[#1e2732] border-none relative rounded-2xl">
                         <img
                             src="/start.webp"
                             alt="Pantalla de Inicio"
@@ -215,7 +215,7 @@ const Game = () => {
                             onClick={startGame}
                             className="flex mb-12 gap-2 text-3xl font-bold bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl text-white p-8 rounded-lg shadow-lg transform transition-all duration-500 ease-in-out hover:scale-105"
                         >
-                            Jogar
+                            Jugar
                         </Button>
                     </Card>
                 )}

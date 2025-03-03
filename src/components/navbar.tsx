@@ -70,15 +70,6 @@ export const Navbar = () => {
                     </div>
                 )}
             </div>
-            <div className="text-lg font-bold md:absolute md:top-0 md:w-screen md:flex md:justify-center md:items-center md:h-16 md:pr-12 md:-z-10 z-0 mb-2 md:mb-0">
-                <div className="flex items-center gap-1">
-                    <span className="relative flex h-3 w-3">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-                    </span>
-                    <span className="text-emerald-400 pl-1">{randomNumber !== null ? randomNumber : "..."} Players Online</span>
-                </div>
-            </div>
             <div className="gap-4 flex flex-col md:flex-row items-center md:space-x-4">
                 {isAuthenticated ? (
                     <>
